@@ -9,28 +9,29 @@
     <StackPanel>
         <StackPanel Orientation="Horizontal">
             <Label>Connection String:</Label>
-            <TextBox Width="300" Text="{Binding Path=ConnectionString, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"></TextBox>
+            <TextBox Width="300"
+                     Text="{Binding Path=ConnectionString, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
             <Button Click="OnClickLoad">Load</Button>
         </StackPanel>
         <StackPanel Orientation="Horizontal">
-            <DataGrid Name="DataGrid" AutoGenerateColumns="True" ItemsSource="{Binding Path=DataTable.DefaultView}"></DataGrid>
+            <DataGrid Name="DataGrid" AutoGenerateColumns="True" ItemsSource="{Binding Path=DataTable.DefaultView}" />
             <Button Click="OnClickConfirm">Confirm</Button>
         </StackPanel>
         <StackPanel Orientation="Horizontal">
             <Label>Device ID:</Label>
-            <TextBox Name="DeviceId" Width="300"></TextBox>
+            <TextBox Name="DeviceId" Width="300" />
         </StackPanel>
         <StackPanel Orientation="Horizontal">
             <Label>Device Name:</Label>
-            <TextBox Name="DeviceName" Width="300"></TextBox>
+            <TextBox Name="DeviceName" Width="300" />
         </StackPanel>
         <StackPanel Orientation="Horizontal">
             <Label>Log Level:</Label>
-            <TextBox Name="LogLevel" Width="300"></TextBox>
+            <TextBox Name="LogLevel" Width="300" />
         </StackPanel>
         <StackPanel Orientation="Horizontal">
             <Label>Log Message:</Label>
-            <TextBox Name="LogMessage" Width="300"></TextBox>
+            <TextBox Name="LogMessage" Width="300" />
         </StackPanel>
         <Button Click="OnClickAdd">Add</Button>
     </StackPanel>

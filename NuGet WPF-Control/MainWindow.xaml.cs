@@ -8,12 +8,13 @@ using System.Windows;
 namespace NuGet_WPF_Control
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    ///     Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : INotifyPropertyChanged
     {
         private const string LoadSqlQuery =
             "SELECT id, pod, location, hostname, severity, timestamp, message FROM v_logentries";
+
         private const string ClearSqlQuery = "CALL `inventar_sql_live`.`ClearLog`({0})";
         private const string AddSqlQuery = "CALL `inventar_sql_live`.`LogMessageAdd`({0}, {1}, {2}, {3})";
         private string _connectionString;
@@ -23,6 +24,23 @@ namespace NuGet_WPF_Control
             DataContext = this;
             InitializeComponent();
         }
+
+        public string ConnectionString
+        {
+            get => _connectionString;
+            set
+            {
+                if (_connectionString == value)
+                    return;
+
+                _connectionString = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public DataTable DataTable { get; } = new DataTable();
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         private void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
@@ -70,7 +88,7 @@ namespace NuGet_WPF_Control
                 connection.Close();
             }
         }
-        
+
         private void OnClickAdd(object sender, RoutedEventArgs e)
         {
             var deviceId = DeviceId.Text;
@@ -94,22 +112,5 @@ namespace NuGet_WPF_Control
                 connection.Close();
             }
         }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public string ConnectionString
-        {
-            get => _connectionString;
-            set
-            {
-                if (_connectionString == value)
-                    return;
-
-                _connectionString = value;
-                OnPropertyChanged();
-            }
-        }
-
-        public DataTable DataTable { get; } = new DataTable();
     }
 }
