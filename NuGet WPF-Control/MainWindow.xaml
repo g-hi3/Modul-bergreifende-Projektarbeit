@@ -34,5 +34,6 @@
             <TextBox Name="LogMessage" Width="300" />
         </StackPanel>
         <Button Click="OnClickAdd">Add</Button>
+        <Button Click="OnClickFindDuplicates">Find Duplicates</Button>
     </StackPanel>
 </Window>

@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Runtime.CompilerServices;
 using System.Windows;
+using DuplicateCheckerLib;
 
 namespace NuGet_WPF_Control
 {
@@ -111,6 +113,42 @@ namespace NuGet_WPF_Control
             {
                 connection.Close();
             }
+        }
+
+        private void OnClickFindDuplicates(object sender, RoutedEventArgs args)
+        {
+            var list = new List<Log>();
+            for (var i = 0; i < DataTable.Rows.Count; i++)
+            {
+                
+                list.Add(new Log()
+                {
+                    Message = DataTable.Rows[i][4] + "",
+                    Severity = DataTable.Rows[i][6] + ""
+                });
+            }
+            var duplicateChecker = new DuplicateChecker();
+            var dupes = duplicateChecker.FindDuplicates(list);
+            var list2 = new List<IEntity>(dupes);
+            MessageBox.Show($"There are {list2.Count} duplicates.");
+        }
+    }
+
+    class Log : IEntity
+    {
+        public string Severity;
+        public string Message;
+        
+        public override bool Equals(object? obj)
+        {
+            if (obj is Log otherLog)
+                return Severity == otherLog.Severity && Message == otherLog.Message;
+            return false;
+        }
+
+        public override int GetHashCode()
+        {
+            return Message.GetHashCode() + Severity.GetHashCode();
         }
     }
 }

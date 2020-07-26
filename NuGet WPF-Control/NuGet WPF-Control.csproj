@@ -11,4 +11,10 @@
       <PackageReference Include="System.Data.SqlClient" Version="4.8.1" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Reference Include="DuplicateCheckerLib, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <HintPath>..\Lib\DuplicateCheckerLib.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
 </Project>
