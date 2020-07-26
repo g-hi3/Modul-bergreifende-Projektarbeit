@@ -12,6 +12,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PluginSystem.Exporters", "P
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PluginSystem.Environments", "PluginSystem.Environments\PluginSystem.Environments.csproj", "{94862574-3674-440E-878B-6D936A6D3A74}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repository", "Repository\Repository.csproj", "{82064D26-EC69-43E9-830C-DC3E92F02770}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,5 +44,9 @@ Global
 		{94862574-3674-440E-878B-6D936A6D3A74}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{94862574-3674-440E-878B-6D936A6D3A74}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{94862574-3674-440E-878B-6D936A6D3A74}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82064D26-EC69-43E9-830C-DC3E92F02770}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82064D26-EC69-43E9-830C-DC3E92F02770}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82064D26-EC69-43E9-830C-DC3E92F02770}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82064D26-EC69-43E9-830C-DC3E92F02770}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
